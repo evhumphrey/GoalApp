@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save!
       login!(@user)
-      redirect_to user_url(@user)
+      redirect_to user_path(@user)
     else
       flash.now[:errors] = "Please retry entering email and password"
       render :new
