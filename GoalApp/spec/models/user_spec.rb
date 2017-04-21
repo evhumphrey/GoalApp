@@ -57,15 +57,18 @@ RSpec.describe User, type: :model do
 
     describe "User::find_by_credentials" do
 
+
+
       context "with valid credentials" do
         it "should return the user object" do
-          expect(User.find_by_credentials(user.email, 'password')).to_not be nil
+          user = User.create(email: "SHELLY@shellysseashellsite.me", password: 'password')
+          expect(User.find_by_credentials(user.email, user.password)).to_not be nil
         end
       end
 
       context "with invalid credentials" do
         it "should return nil" do
-          expect(User.find_by_credentials(user.email, 'smellytunafish')).to be true
+          expect(User.find_by_credentials(user.email, 'smellytunafish')).to be nil
         end
       end
     end
