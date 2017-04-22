@@ -9,6 +9,6 @@
   <input id="password" type="password" name="user[password]">
   <br>
 
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="<%= action_url == session_url ? "Log in" : "Sign Up"%>">
 
 </form>
